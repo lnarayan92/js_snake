@@ -142,6 +142,15 @@ function wallCollision(head, snake2 = false){
      // draw the food
      ctext.drawImage(foodI, food.x, food.y);
 
+     // result by score
+     if (score > 25){
+        ctext.fillText('Green Head Won!', 4*box, 4.5*box);
+        clearInterval(game);
+     }else if(score2 > 25){
+         ctext.fillText('Orange Head Won!', 4*box, 4.5*box);
+         clearInterval(game);
+     }
+
      // old head positions
      snakeX = snake[0].x;
      snakeY = snake[0].y;
@@ -221,8 +230,6 @@ function wallCollision(head, snake2 = false){
      ctext.fillText(score, 4*box, 1.5*box);
      ctext.fillText('P2: ', 5*box, 1.5*box);
      ctext.fillText(score2, 7*box, 1.5*box);
-
-
  }
  // call draw() every 0.x secs
  let game = setInterval(draw, 300);
